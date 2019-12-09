@@ -22,7 +22,7 @@ const admin = new kafka.Admin(client);
 //     return res.toString();
 // });
 
-export const hi = () => {
+export const getConsumers = () => {
     return new Promise((resolve, reject) => {
         admin.listGroups((err, res) => {
             if (err) {

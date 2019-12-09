@@ -11,7 +11,7 @@ import "./helpers/external_links.js";
 import { remote } from "electron";
 import jetpack from "fs-jetpack";
 import { greet } from "./hello_world/hello_world";
-import { hi } from "./helpers/consumers";
+import { getConsumers } from "./helpers/consumers";
 import env from "env";
 
 const app = remote.app;
@@ -27,18 +27,20 @@ const osMap = {
   linux: "Linux"
 };
 
-
 document.querySelector("#app").style.display = "block";
-//document.querySelector("#greet").innerHTML = getConsumers();
+document.querySelector("#greet").innerHTML = greet();
 document.querySelector("#os").innerHTML = osMap[process.platform];
 document.querySelector("#author").innerHTML = manifest.author;
 document.querySelector("#env").innerHTML = env.name;
 document.querySelector("#electron-version").innerHTML =
   process.versions.electron;
 
-hi().then(value => {
-  document.querySelector("#greet").innerHTML = value;
+getConsumers().then(value => {
+  let consumerList = "";
+  Object.keys(JSON.parse(value)).forEach(
+    consumer => consumerList += "<li>" + consumer + "</li>"
+  );
+  document.querySelector("#consumerList").innerHTML = consumerList;
 }).catch(err => {
   console.log(err);
 })
-
