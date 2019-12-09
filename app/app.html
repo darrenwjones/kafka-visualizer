@@ -2,25 +2,81 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <script>const Photon = require("electron-photon");</script>
   <title>Electron Boilerplate</title>
 </head>
 <body>
 
-  <div id="app" class="container" style="display: none;">
-    <h1 id="greet"></h1>
-    <p>
-      Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this <strong id="os"></strong> machine.
-    </p>
-    <p>
-      App author: <strong id="author"></strong>
-    </p>
-    <p>
-      Environment: <strong id="env"></strong>
-    </p>
-    <p>
-      Electron version: <strong id="electron-version"></strong>
-    </p>
-  </div>
+    <ph-window>
+      <!--Top header bar here-->
+      <tool-bar type="header">
+        Toolbar Header
+      </tool-bar>
+      <!--Window content here-->
+      <window-content>
+
+          <div class="pane-group">
+            <!--Sidebar here-->
+            <div class="pane-sm sidebar">
+                <nav-group>
+                    <h5 class="nav-group-title">Favorites</h5>
+                    <nav-item class="active">
+                        <list-select>
+                            <li class="active" draggable="true">
+                                <details>
+                                  <summary>Orange</summary>
+                                  <list-select>
+                                    <li draggable="true">Bloodorange</li>
+                                    <li draggable="true">Orange</li>
+                                  </list-select>
+                                </details>
+                              </li>
+                        </list-select>
+                        
+                    </nav-item>
+                    <nav-item>
+                      Downloads
+                    </nav-item>
+                    <nav-item>
+                      Documents
+                    </nav-item>
+                    <nav-item>
+                      AirPlay
+                    </nav-item>
+                    <nav-item>
+                      Applications
+                    </nav-item>
+                    <nav-item>
+                      Desktop
+                    </nav-item>
+                  </nav-group>
+            </div>
+            <!--Main pane-->
+            <div class="pane">
+              <div id="app" class="container" style="display: none;">
+                <h1 id="greet">Loading...</h1>
+                <p>
+                  Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this <strong id="os"></strong> machine.
+                </p>
+                <p>
+                  App author: <strong id="author"></strong>
+                </p>
+                <p>
+                  Environment: <strong id="env"></strong>
+                </p>
+                <p>
+                  Electron version: <strong id="electron-version"></strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+      </window-content>
+      <!--Bottom footer bar here-->
+      <tool-bar type="footer">
+        Footer Header
+      </tool-bar>
+    </ph-window>
 
   <script src="app.js"></script>
 </body>

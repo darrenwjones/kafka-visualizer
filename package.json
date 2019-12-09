@@ -42,7 +42,8 @@
   },
   "dependencies": {
     "electron-photon": "^1.1.6",
-    "fs-jetpack": "^2.2.3"
+    "fs-jetpack": "^2.2.3",
+    "kafka-node": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
